@@ -14,11 +14,11 @@ export const AppRoutes = () => {
     <Router>
       <DashboardPage>
         <Switch>
-          <Route path='/' exact component={MainChart as ComponentClass} />
+          <Route path="/" exact component={MainChart} />
           <Suspense fallback={<div>Loading</div>}>
             <Route
               exact
-              path='/dynamic-route'
+              path="/dynamic-route"
               component={MyDynamicRoute as any}
             />
           </Suspense>

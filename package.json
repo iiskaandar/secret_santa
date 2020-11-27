@@ -3,7 +3,6 @@
   "version": "1.0.1",
   "main": "src/main.tsx",
   "author": "iiskaandar",
-  "license": "MIT",
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --open --mode=development",
