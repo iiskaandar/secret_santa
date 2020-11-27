@@ -1,4 +1,4 @@
-import React, { ComponentClass, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Dashboard from '@core/pages/Dashboard';
@@ -9,10 +9,9 @@ const MyDynamicRoute = React.lazy(() =>
 );
 
 export const AppRoutes = () => {
-  const DashboardPage = Dashboard as ComponentClass;
   return (
     <Router>
-      <DashboardPage>
+      <Dashboard>
         <Switch>
           <Route path="/" exact component={MainChart} />
           <Suspense fallback={<div>Loading</div>}>
@@ -23,7 +22,7 @@ export const AppRoutes = () => {
             />
           </Suspense>
         </Switch>
-      </DashboardPage>
+      </Dashboard>
     </Router>
   );
 };
