@@ -2,7 +2,7 @@ import axios from 'axios';
 import localStorageService from '@core/services/local-storage';
 import { ErrorCodes } from '../constants/constants';
 
-const baseURL = process.env.API_URL;
+const baseURL = process.env.BACKEND_URL;
 class ApiService {
   public request: any;
 
@@ -43,6 +43,10 @@ class ApiService {
 
   public post<T>(url: string, data?: {}, options?: {}): Promise<T> {
     return this.request.post(url, data, options);
+  }
+
+  public put<T>(url: string, data?: {}, options?: {}): Promise<T> {
+    return this.request.put(url, data, options);
   }
 
   private getHeaders() {

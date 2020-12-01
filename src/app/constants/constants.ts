@@ -5,5 +5,10 @@ export enum ErrorCodes {
 }
 
 export enum ApiEndpoints {
-  COUNTRY = 'country'
+  COUNTRY = 'country',
+  SIGNIN = 'auth/signin',
+  SIGNUP = 'auth/signup',
+  USERS = 'users',
+  NOT_TO_DRAW = 'user/nottodraw',
+  DRAW = 'draw',
 }
