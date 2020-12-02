@@ -102,9 +102,8 @@ export default function Draw() {
     };
 
     fetchData();
-    if (process.env.BACKEND_URL) {
-      // const socket = socketIOClient(process.env.BACKEND_URL);
-      const socket = socketIOClient('ws://localhost:8000', {
+    if (process.env.BACKEND_WS) {
+      const socket = socketIOClient(process.env.BACKEND_WS, {
         query: { id: user.id },
       });
       socket.on('connect', () => {});
