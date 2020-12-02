@@ -1,4 +1,4 @@
-const filesToCache = [
+/* const filesToCache = [
   '/',
   './index.html',
   './offline.html',
@@ -20,7 +20,7 @@ self.addEventListener('fetch', event => {
   event.respondWith(
     fetch(event.request)
       .then(response => {
-        if (response.status === 404) {
+         if (response.status === 404) {
           return caches.match('./404.html');
         }
         if (response.status === 200) {
@@ -29,7 +29,7 @@ self.addEventListener('fetch', event => {
 
             return response;
           });
-        }
+        } 
         return response;
       })
       .catch(error => {
@@ -47,3 +47,4 @@ self.addEventListener('fetch', event => {
 self.addEventListener('activate', () => {
   console.log('Activating new service worker...', navigator);
 });
+*/

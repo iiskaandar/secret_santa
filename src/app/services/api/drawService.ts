@@ -16,3 +16,7 @@ export async function getUsers(): Promise<any> {
 export async function setNotToDraw(id: number, userId: number): Promise<any> {
   return ApiService.put(`${ApiEndpoints.NOT_TO_DRAW}`, { id, userId });
 }
+
+export async function startDraw(): Promise<any> {
+  return ApiService.get(`${ApiEndpoints.DRAW}`);
+}

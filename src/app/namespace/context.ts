@@ -17,3 +17,11 @@ export enum MainTypes {
   SIGNUP = 'SIGNUP',
   SET_NOT_TO_DRAW = 'SET_NOT_TO_DRAW',
 }
+
+export type userType = {
+  drawnperson?: number;
+  id: number;
+  isadmin?: boolean;
+  name: string;
+  nottodraw?: number;
+};
