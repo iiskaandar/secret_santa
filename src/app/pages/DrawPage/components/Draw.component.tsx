@@ -3,6 +3,7 @@ import socketIOClient from 'socket.io-client';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
@@ -17,6 +18,17 @@ import { userType } from '@namespace/index';
 const useStyles = makeStyles(theme => ({
   appBar: {
     position: 'relative',
+  },
+  image: {
+    backgroundImage: 'url(https://source.unsplash.com/LUPXhXj2ip0)',
+    backgroundRepeat: 'no-repeat',
+    backgroundColor:
+      theme.palette.type === 'light'
+        ? theme.palette.grey[50]
+        : theme.palette.grey[900],
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    height: '100vh',
   },
   layout: {
     width: 'auto',
@@ -52,6 +64,12 @@ const useStyles = makeStyles(theme => ({
   button: {
     marginTop: theme.spacing(3),
     marginLeft: theme.spacing(1),
+  },
+  text: {
+    marginBottom: '10px',
+  },
+  green: {
+    backgroundColor: '#165B33',
   },
 }));
 
@@ -105,17 +123,32 @@ export default function Draw() {
   }, []);
 
   return (
-    <React.Fragment>
+    <Grid container component="main" className={classes.image}>
       <CssBaseline />
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           {drawnPersonStatic ? (
-            <Typography component="h1" variant="h4" align="center">
-              {drawnPersonStatic}
-            </Typography>
+            <div>
+              <Typography
+                component="h3"
+                variant="h5"
+                align="center"
+                className={classes.text}
+              >
+                Robisz prezent dla:
+              </Typography>
+              <Typography component="h1" variant="h4" align="center">
+                {drawnPersonStatic}
+              </Typography>
+            </div>
           ) : (
             <div>
-              <Typography component="h1" variant="h4" align="center">
+              <Typography
+                component="h1"
+                variant="h4"
+                align="center"
+                className={classes.text}
+              >
                 Mozesz wybrać osobę, której nie chcesz wylosować.
               </Typography>
               <List dense className={classes.root}>
@@ -138,7 +171,7 @@ export default function Draw() {
                           }}
                         >
                           <ListItemAvatar>
-                            <Avatar>{name[0]}</Avatar>
+                            <Avatar className={classes.green}>{name[0]}</Avatar>
                           </ListItemAvatar>
                           <ListItemText id={labelId} primary={name} />
                         </ListItem>
@@ -163,6 +196,6 @@ export default function Draw() {
           )}
         </Paper>
       </main>
-    </React.Fragment>
+    </Grid>
   );
 }
