@@ -1,4 +1,5 @@
 import baseStyled, { ThemedStyledInterface } from 'styled-components';
+import { createMuiTheme } from '@material-ui/core/styles';
 
 export const defaultTheme = {
   colors: {
@@ -16,6 +17,19 @@ export const defaultTheme = {
     peach: '#F2C39C',
   },
 };
+
+export const materialTheme = createMuiTheme({
+  palette: {
+    type: 'light',
+    primary: {
+      main: '#165B33',
+      dark: defaultTheme.colors.green,
+    },
+    secondary: {
+      main: '#BB2528',
+    },
+  },
+});
 
 export type Theme = typeof defaultTheme;
 export const styled = baseStyled as ThemedStyledInterface<Theme>;

@@ -1,29 +1,28 @@
-import React, { ComponentClass, Suspense } from 'react';
+import React, { Suspense, useContext } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Context from '@store/context';
 
-import Dashboard from '@core/pages/Dashboard';
-import MainChart from '@core/pages/MainChart';
+import Signin from '@core/pages/Signin';
+import Draw from '@core/pages/DrawPage';
 
 const MyDynamicRoute = React.lazy(() =>
   import(/* webpackChunkName: "dynamic-route" */ '@core/pages/DynamicRoute'),
 );
 
 export const AppRoutes = () => {
-  const DashboardPage = Dashboard as ComponentClass;
+  const { user } = useContext(Context);
   return (
     <Router>
-      <DashboardPage>
-        <Switch>
-          <Route path='/' exact component={MainChart as ComponentClass} />
-          <Suspense fallback={<div>Loading</div>}>
-            <Route
-              exact
-              path='/dynamic-route'
-              component={MyDynamicRoute as any}
-            />
-          </Suspense>
-        </Switch>
-      </DashboardPage>
+      <Switch>
+        <Route path="/" exact component={user ? Draw : Signin} />
+        <Suspense fallback={<div>Loading</div>}>
+          <Route
+            exact
+            path="/dynamic-route"
+            component={MyDynamicRoute as any}
+          />
+        </Suspense>
+      </Switch>
     </Router>
   );
 };
