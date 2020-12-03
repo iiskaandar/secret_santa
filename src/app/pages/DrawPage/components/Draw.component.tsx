@@ -148,7 +148,19 @@ export default function Draw() {
                 align="center"
                 className={classes.text}
               >
-                Mozesz wybrać osobę, której nie chcesz wylosować.
+                Losowanie - start 22:00
+              </Typography>
+              <Typography
+                component="h1"
+                variant="subtitle1"
+                align="justify"
+                className={classes.text}
+              >
+                Po zakończeniu losowania zobaczysz nazwę osoby, dla której
+                będziesz Świętym Mikołajem. Poniżej znajduje się lista osób
+                biorących udział w losowaniu. Jeśli nie chcesz komuś dawać
+                prezentu, możesz go oznaczyć. Pamiętaj, że osoba oznaczona nie
+                będzie mogła wylosować Ciebie :(
               </Typography>
               <List dense className={classes.root}>
                 {users &&
